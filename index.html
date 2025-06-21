@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sundargarh Public School</title>
+
+  <!-- Fonts and Libraries -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 15px 0;
+      background: rgba(0, 0, 0, 0.8);
+      text-align: center;
+      z-index: 9999;
+      box-shadow: 0 0 20px #00ffff44;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff00e0;
+      text-shadow: 0 0 5px #fff;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(ellipse at center, #1a1a1a, #0f0f0f);
+      text-align: center;
+      position: relative;
+      padding: 0 20px;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('http://sundargarhpublicschool.in/assets/images/logo.png')
+        no-repeat center/contain;
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(90deg, #00f0ff, #ff00e0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      z-index: 2;
+      animation: glowText 2s ease-in-out infinite alternate;
+      user-select: none;
+    }
+
+    @keyframes glowText {
+      from {
+        text-shadow: 0 0 5px #00fff5;
+      }
+      to {
+        text-shadow: 0 0 20px #ff00e0, 0 0 30px #ff00e0;
+      }
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    section:not(:last-child) {
+      border-bottom: 1px solid #00fff5aa;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 30px 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 20px #00fff540;
+      transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px #00fff5aa;
+    }
+
+    .glass-card h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #0ff;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 280px;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00fff5aa;
+      transition: transform 0.3s;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 900px;
+      height: 450px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00fff5aa;
+      user-select: none;
+    }
+
+    form input,
+    form textarea,
+    form button {
+      width: 90%;
+      max-width: 600px;
+      padding: 12px;
+      margin: 10px auto;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      display: block;
+      font-size: 1rem;
+      user-select: text;
+    }
+
+    form input,
+    form textarea {
+      background: #1c1c1c;
+      color: #0ff;
+      resize: vertical;
+    }
+
+    form textarea {
+      min-height: 100px;
+    }
+
+    form button {
+      background: #00fff5;
+      color: #000;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+
+    form button:hover {
+      background-color: #00cccc;
+    }
+
+    #principal img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      margin: 20px auto;
+      display: block;
+      object-fit: cover;
+      box-shadow: 0 0 15px #00fff5aa;
+    }
+
+    footer {
+      padding: 40px 20px;
+      background: #000;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #0ff;
+      border-top: 2px solid #0ff4;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav a {
+        margin: 0 8px;
+        font-size: 0.9rem;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      .gallery img {
+        width: 90%;
+      }
+
+      form input,
+      form textarea,
+      form button {
+        width: 95%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="tsparticles"></div>
+
+  <nav>
+    <a href="#facilities">Facilities</a>
+    <a href="#announcements">Announcements</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#video">Video</a>
+    <a href="#admission">Admission</a>
+    <a href="#principal">Principal</a>
+  </nav>
+
+  <header data-aos="zoom-in">
+    <h1>Sundargarh Public School</h1>
+  </header>
+
+  <section id="facilities" data-aos="fade-up">
+    <div class="glass-card">
+      <h2>Facilities</h2>
+      <p>
+        Smart Classrooms, Modern Labs, Playgrounds, Library, Sports Complex
+        and more!
+      </p>
+    </div>
+  </section>
+
+  <section id="announcements" data-aos="fade-up">
+    <div class="glass-card">
+      <h2>Announcements</h2>
+      <p>Admissions Open | Sports Day on July 15 | Annual Results Out Soon</p>
+    </div>
+  </section>
+
+  <section id="gallery" data-aos="fade-up">
+    <div class="glass-card">
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <img
+          src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nprulBxrQhtuPL5LbALC8QBjR5ERoYpMV7IzZ8TEXfa_SvPdrOmYo2CBRN3Ip6RemMPPluBi3URQWQoqCOoseqEJ6GDWDnScjKvyNfr_a8qTNNZCXFeuecRJdzIU-Y-FjRrFjmM=s1360-w1360-h1020-rw"
+          alt="Campus 1"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npSv4dQ-uYid2IdXxjZDMTseu9LuU3a3LK82Hh6hpl7n-fD5__wJ9wdh8cKR-3XPLJCUjjUfA0Rohg1wlb81BGLkGmDbsj0Q53n_ZbG0JQqN21s1RV0vnjZmVaaUlFzk-UGFQx1=s1360-w1360-h1020-rw"
+          alt="Campus 2"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4noo-wY3z3MeeI-n-DWsHOJWazbjPIj6X61oD1uZmE5HsVkQuLifCsOx97OpRHJ-cHja2g70EC1L-EvvFDcpMVSmpmCf7HJ1N922Z034gYjJHb2WS3OVCGlq-F8XcjJCmHUuOwdlaA=s1360-w1360-h1020-rw"
+          alt="Campus 3"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nq8J_u4r2DoMxiylFDGm-bKX00dslyF9hGW7qTnF_dvyUkB-LDGRda76-LFHkB3d8B78UfZ1D_13AYv62_iQSu-nrQXedQe402Tfe-mSBVlGFhPLrppQXN-B0EwPS-JiLG58qDX=s1360-w1360-h1020-rw"
+          alt="Campus 4"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npTIEIPhW4ARF2PT2TVqbRNqykPlTsuW_AQ-wMx10LZwdeaN9O3yEvDapBHYt5DWCYQrWwt-DgyeK9KA6k814BNk7z46WRfZNcZGiaCwWADX9Q5FU-hPS93oirSmUFGAxgZAmsT=s1360-w1360-h1020-rw"
+          alt="Campus 5"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section id="video" data-aos="fade-up">
+    <div class="glass-card">
+      <h2>School Tour</h2>
+      <iframe
+        src="https://www.youtube.com/embed/BJ7LpdAF7WU"
+        allowfullscreen
+        title="Sundargarh Public School Tour"
+      ></iframe>
+    </div>
+  </section>
+
+  <section id="admission" data-aos="fade-up">
+    <div class="glass-card">
+      <h2>Admission Form</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Why do you want to join?" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="principal" data-aos="fade-up">
+    <div class="glass-card">
+      <h2>Principal's Message</h2>
+      <img
+        src="http://sundargarhpublicschool.in/ETSphoto/HomeImage/5.jpg"
+        alt="Principal"
+      />
+      <p>
+        Welcome to Sundargarh Public School. We believe in shaping minds and
+        building futures with values and vision. – Principal
+      </p>
+    </div>
+  </section>
+
+  <footer data-aos="fade-up">
+    <p>&copy; 2025 Sundargarh Public School</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      tsParticles.load('tsparticles', {
+        particles: {
+          number: { value: 100 },
+          color: { value: '#00ffff' },
+          shape: { type: 'circle' },
+          opacity: { value: 0.5 },
+          size: { value: 3 },
+          move: { enable: true, speed: 1.2 }
+        },
+        interactivity: {
+          events: { onhover: { enable: true, mode: 'repulse' } },
+          modes: { repulse: { distance: 100 } }
+        },
+        background: { color: '#000000' }
+      });
+
+      AOS.init({
+        once: true,
+        duration: 800,
+        easing: 'ease-in-out',
+      });
+    });
+  </script>
+</body>
+</html>
